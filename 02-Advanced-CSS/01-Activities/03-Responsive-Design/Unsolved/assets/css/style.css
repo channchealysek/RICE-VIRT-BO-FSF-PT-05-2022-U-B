@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+header {
+  padding: 40px;
+  text-align: center;
+  background: #13293d;
+  color: #fff;
+}
+
+/* 
+What happens when we set the display property to flex? 
+TODO: 
+ - Items display in a row (the flex-direction property's default is row ). 
+ - The items start from the start edge of the main axis. 
+ - The items do not stretch on the main dimension, but can shrink. 
+ - The items will stretch to fill the size of the cross axis 
+*/
+nav {
+  display: flex;
+  background-color: #d8a47f;
+}
+
+nav a {
+  color: #13293d;
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+/* 
+What is the flex-wrap property? 
+TODO: 
+  The flex-wrap property is a sub-property of the Flexible Box Layout module.
+
+  It defines whether the flex items are forced in a single line or can be flowed into multiple lines. 
+  If set to multiple lines, it also defines the cross-axis which determines the direction new lines are stacked in.
+  
+  - The flex-wrap property accepts 3 different values:
+
+    * nowrap (default): single-line which may cause the container to overflow
+    * wrap: multi-lines, direction is defined by flex-direction
+    * wrap-reverse: multi-lines, opposite to direction defined by flex-direction
+  */
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+aside {
+  flex: 1;
+  background-color: #b9c6ae;
+  padding: 80px;
+  text-align: center;
+}
+
+
+footer {
+  padding: 20px;
+  text-align: center;
+  background: #13293d;
+  color: #fff;
+}
+
+/* 
+What does the justify-content property do? 
+TODO: 
+  justify-content property defines how the browser distributes space between and around content items along the main-axis of a flex container, and the inline axis of a grid container.
+*/
+.products {
+  flex: 4;
+  background-color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* 
+What is the flex property a shorthand property for?
+What is it doing here? 
+TODO: 
+ - What is the flex property a shorthand property for? 
+    The flex shorthand property sets how a flex item will grow or shrink to fit the space available in its flex container.
+ - What is it doing here? 
+    + It is used to set the length of flexible items. 
+    + The flex property is much responsive and mobile-friendly. 
+    + It is easy to position child elements and the main container. 
+    + The margin doesn’t collapse with the content margins.
+    + The order of any element can be easily changed without editing the HTML section.
+      - This is a shorthand property that sets flex-grow, flex-shrink, and flex-basis.
+ */
+.card {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10px;
+  padding: 10px;
+  flex: 0 0 400px;
+}
+
+.card header {
+  padding: 20px;
+}
+
+.card p {
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+}
+
+/* 
+What does the flex-direction property define?
+What is it doing here? 
+TODO: 
+  - What does the flex-direction property define?
+    + The flex-direction property specifies the direction of the flexible items. Note: If the element is not a flexible item, the flex-direction property has no effect.
+
+  - What is it doing here? 
+    + when screen size max-width equal to 768px all elements in class main and nav will change to column direction.
+*/
+@media screen and (max-width: 768px) {
+  main,
+  nav {
+    flex-direction: column;
+  }
+}
